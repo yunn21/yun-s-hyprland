@@ -1,0 +1,55 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "mpris"
+    ],
+    "modules-right": [
+        "clock",
+        "battery",
+        "network"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5]
+        }
+    },
+
+    "mpris": {
+        "format": "\uf04b {title} - {artist}",
+        "format-paused": "\uf04c {title} - {artist}",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+
+    "clock": {
+        "format": "[ TIME: {:%H:%M} ]",
+        "tooltip-format": "{:%A, %d %B %Y}"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "[ BATTERY: {capacity}% ]",
+        "format-charging": "[ BATTERY: {capacity}% CHG ]"
+    },
+
+    "network": {
+        "format-wifi": "[ WIFI: YES ]",
+        "format-ethernet": "[ WIFI: ETH ]",
+        "format-disconnected": "[ WIFI: NO ]",
+        "on-click": "ghostty -e nmtui"
+    }
+}

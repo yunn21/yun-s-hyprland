@@ -1,0 +1,111 @@
+/* --- Catppuccin Mocha — White Stats & Zero-Box Compact Waybar --- */
+
+@define-color glass       rgba(0, 0, 0, 0.40);
+
+@define-color text        #cdd6f4;
+@define-color text-active #ffffff;
+@define-color dim         #6c7086;
+@define-color muted       #45475a;
+
+@define-color white       #ffffff;
+@define-color red         #f38ba8;
+@define-color mauve       #cba6f7;
+
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: @glass;
+    border-bottom: none;
+}
+
+tooltip {
+    background-color: rgba(24, 24, 37, 0.90);
+    border: 1px solid #313244;
+    border-radius: 0px;
+    padding: 6px 10px;
+}
+
+tooltip label {
+    color: @text;
+}
+
+/* ---------- workspaces (text only) ---------- */
+
+#workspaces {
+    background-color: transparent;
+    padding: 0 2px;
+    margin: 0;
+}
+
+#workspaces button {
+    background: transparent;
+    padding: 0 4px;
+    margin: 0 1px;
+    color: @muted;
+    font-weight: 500;
+}
+
+#workspaces button:hover {
+    color: @text-active;
+}
+
+#workspaces button.active {
+    color: @mauve;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+/* ---------- text-only modules (WHITE STATS, NO BOXES) ---------- */
+
+#clock,
+#pulseaudio,
+#battery,
+#network,
+#mpris,
+#tray {
+    background: transparent;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 0 5px;
+    margin: 0 1px;
+    color: @white;
+}
+
+/* All modules set to pure white */
+#clock      { color: @white; }
+#network    { color: @white; }
+#pulseaudio { color: @white; }
+#mpris      { color: @white; }
+#battery    { color: @white; }
+
+#network.disconnected,
+#pulseaudio.muted {
+    color: @muted;
+}
+
+#mpris.paused  { color: @dim; }
+
+#battery.critical:not(.charging) {
+    color: @red;
+}
+
+#tray {
+    padding: 0 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    color: @red;
+}
